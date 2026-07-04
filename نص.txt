@@ -1,0 +1,17 @@
+// 2. التعامل مع الضغط على خيارات قائمة البنك
+if (interaction.isStringSelectMenu()) {
+    if (interaction.customId === 'bank_menu') {
+        const choice = interaction.values[0];
+
+        // ردود مخفية (ephemeral) تظهر فقط للشخص المجرّب للأمر
+        if (choice === 'check_balance') {
+            await interaction.reply({ content: '💳 **رصيدك الحالي:** حسابك البنكي يحتوي على **$0**', ephemeral: true });
+        } else if (choice === 'deposit') {
+            await interaction.reply({ content: '💰 **إيداع الأموال:** توجه لأقرب فرع بنك داخل المدينة للإيداع.', ephemeral: true });
+        } else if (choice === 'withdraw') {
+            await interaction.reply({ content: '💸 **سحب الأموال:** يمكنك سحب كاش عبر الصراف الآلي داخل المدينة.', ephemeral: true });
+        } else if (choice === 'transfer') {
+            await interaction.reply({ content: '🔄 **التحويل المالي:** استخدم أوامر المدينة المخصصة للتحويل الفوري.', ephemeral: true });
+        }
+    }
+}
